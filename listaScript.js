@@ -1,37 +1,3 @@
-// LOGIN
-document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.getElementById('loginForm')
-
-  if (loginForm) {
-    loginForm.addEventListener('submit', async event => {
-      event.preventDefault()
-
-      const username = document.getElementById('username').value
-      const password = document.getElementById('password').value
-
-      console.log('Usuario:', username)
-      console.log('Contraseña:', password)
-
-      try {
-        const response = await fetch(
-          `http://181.111.166.250:8081/tp/login.php?user=${username}&pass=${password}`
-        )
-        const data = await response.json()
-
-        console.log('Respuesta del servidor:', data)
-
-        if (data.respuesta === 'OK') {
-          window.location.href = 'lista.html'
-        } else {
-          document.getElementById('mensaje').textContent = data.mje
-        }
-      } catch (error) {
-        console.error('Error en la solicitud:', error)
-      }
-    })
-  }
-})
-
 // LISTA DE USUARIOS
 cargarUsuarios()
 
@@ -49,7 +15,7 @@ async function cargarUsuarios(query = '') {
         'No se encontraron usuarios.'
       return
     }
-
+    document.getElementById('mensaje').textContent = ''
     users.forEach(user => {
       const row = document.createElement('tr')
       row.className = user.bloqueado === 'Y' ? 'bloqueado' : 'desbloqueado'
@@ -60,8 +26,8 @@ async function cargarUsuarios(query = '') {
               <td>${user.bloqueado}</td>
               <td>${user.apellido}</td>
               <td>${user.nombre}</td>
-              <td><button onclick="cambiarEstado(${user.id}, 'Y')">Bloquear</button></td>
-              <td><button onclick="cambiarEstado(${user.id}, 'N')">Desbloquear</button></td>
+              <td><button onclick="cambiarEstado(${user.id}, 'Y')" class="w-full h-full flex justify-center items-center"><img src="./assets/bloquear.svg" alt="bloquear" class="w-[30px]"></button></td>
+              <td><button onclick="cambiarEstado(${user.id}, 'N')" class="w-full h-full flex justify-center items-center"><img src="./assets/desbloquear.svg" alt="desbloquear" class="w-[30px]"></button></td>
           `
 
       tableBody.appendChild(row)

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Usuarios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       table {
         width: 100%;
@@ -23,28 +24,41 @@
       }
     </style>
   </head>
-  <body>
-    <h2>Lista de Usuarios</h2>
-    <input type="text" id="searchInput" placeholder="Buscar usuario..." />
-    <button onclick="buscarUsuarios()">Buscar</button>
+  <body class="flex flex-col items-center min-h-screen bg-gray-100 p-8 gap-2">
+    <h2 class="text-3xl font-bold text-blue-600 mb-6">Lista de Usuarios</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Usuario</th>
-          <th>Bloqueado</th>
-          <th>Apellido</th>
-          <th>Nombre</th>
-          <th>Bloquear</th>
-          <th>Desbloquear</th>
-        </tr>
-      </thead>
-      <tbody id="userTable"></tbody>
-    </table>
+    <div class="flex gap-2 mb-4">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Buscar usuario..."
+        class="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+      />
+      <button
+        onclick="buscarUsuarios()"
+        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+      >
+        Buscar
+      </button>
+    </div>
+    <p id="mensaje" class="text-red-600 mt-4"></p>
+    <div class="w-full max-w-4xl overflow-x-auto bg-white shadow-md rounded-lg">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="bg-blue-500 text-white">
+            <th class="p-3 border">ID</th>
+            <th class="p-3 border">Usuario</th>
+            <th class="p-3 border">Bloqueado</th>
+            <th class="p-3 border">Apellido</th>
+            <th class="p-3 border">Nombre</th>
+            <th class="p-3 border">Bloquear</th>
+            <th class="p-3 border">Desbloquear</th>
+          </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+      </table>
+    </div>
 
-    <p id="mensaje" class="text-red-900"></p>
-
-    <script src="script.js"></script>
+    <script src="listaScript.js"></script>
   </body>
 </html>
