@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Usuarios</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      .bloqueado {
+        background-color: #fd9f8b;
+      }
+      .desbloqueado {
+        background-color: #cef8c6;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Lista de Usuarios</h2>
+    <input type="text" id="searchInput" placeholder="Buscar usuario..." />
+    <button onclick="buscarUsuarios()">Buscar</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Usuario</th>
+          <th>Bloqueado</th>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Bloquear</th>
+          <th>Desbloquear</th>
+        </tr>
+      </thead>
+      <tbody id="userTable"></tbody>
+    </table>
+
+    <p id="mensaje" class="text-red-900"></p>
+
+    <script src="script.js"></script>
+  </body>
+</html>

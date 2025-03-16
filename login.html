@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tp 1 Lab4</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="flex flex-col justify-between items-center">
+    <header>
+      <h1 class="text-3xl font-bold underline">TP 1 MAGNI</h1>
+    </header>
+    <main class="flex flex-col justify-center items-center">
+      <h2>Iniciar Sesión</h2>
+      <form
+        id="loginForm"
+        class="flex flex-col justify-center items-center gap-2"
+      >
+        <div class="border-1 p-2">
+          <label for="username">Usuario:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Usuario"
+            required
+          />
+        </div>
+        <div class="border-1 p-2">
+          <label for="password">Contraseña:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="text-3xl text-red-500 bg-gray-100 rounded-sm p-2 w-50 flex justify-center items-center"
+        >
+          INGRESAR
+        </button>
+      </form>
+      <p id="mensaje" class="text-red-900"></p>
+    </main>
+    <footer>
+      <p>Juan Cruz Robledo</p>
+    </footer>
+  </body>
+  <script src="script.js"></script>
+</html>
